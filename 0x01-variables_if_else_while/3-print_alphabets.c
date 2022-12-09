@@ -13,7 +13,8 @@ for (c = 'a'; c <= 'z'; c++)
 {
 putchar(c);
 }
-char d = 'A';
+char d;
+d = 'A';
 for (d = 'A'; d <= 'Z'; d++)
 {
 putchar(d);
