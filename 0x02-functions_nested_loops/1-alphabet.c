@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stdio.h"
 /**
 * print_alphabet - Check description
 * Description: It prints the alphabet in lowercase fallowe* d by a new line
@@ -10,9 +10,9 @@ void print_alphabet(void)
 
 	for (a = 'a'; a <= 'z'; a++)
 	{
-	_putchar(a);
+	putchar(a);
 	}
-	_putchar('\n');
+	putchar('\n');
 	return ();
 }
 
