@@ -20,26 +20,31 @@ void print_times_table(int n)
 				if (e <= 9)
 				{
 					_putchar(e + '0');
+					if (d != n)
+						_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
+					_putchar(' ');
 				}
 				else if (e > 9 && e <= 99)
 				{
 					_putchar((e / 10) + '0');
 					_putchar((e % 10) + '0');
+					if (d != n)
+						_putchar(',');
+					_putchar(' ');
+					_putchar(' ');
 				}
 				else
 				{
 					_putchar(((e / 10) / 10) + '0');
 					_putchar(((e / 10) % 10) + '0');
 					_putchar((e % 10) + '0');
-				}
-				if (d != n)
-				{
-				_putchar(',');
-				_putchar(' ');
-				_putchar(' ');
+					if (d != n)
+						_putchar(',');
+					_putchar(' ');
 				}
 			}
-			_putchar(' ');
 			_putchar('\n');
 		}
 
