@@ -32,8 +32,11 @@ void print_times_table(int n)
 					_putchar(((e / 10) % 10) + '0');
 					_putchar((e % 10) + '0');
 				}
+				if (d != n)
+				{
 				_putchar(',');
 				_putchar(' ');
+				}
 			}
 			_putchar('\n');
 		}
