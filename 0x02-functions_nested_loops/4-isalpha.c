@@ -6,7 +6,7 @@
  * d by a new line
  * Return: 1 when true and 0 when false
  */
-int _isalpha(int c);
+int _isalpha(int c)
 {
 	char a;
 	int res = 0;
