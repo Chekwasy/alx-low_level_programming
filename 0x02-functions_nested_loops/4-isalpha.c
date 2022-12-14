@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _islower - Check description
+ * _isalpha - Check description
  * Description: It tells if lower case
  * @c: - An input parameter
  * d by a new line
