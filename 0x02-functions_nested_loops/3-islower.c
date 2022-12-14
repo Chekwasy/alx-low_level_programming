@@ -1,22 +1,23 @@
 #include "main.h"
 /**
- * islower - Check description
- * Description: It prints the alphabet in lowercase fallowe\
+ * _islower - Check description
+ * Description: It prints the alphabet in lowercase fallow *e\
  * c - parameter
  * d by a new line
  * Return: Nothing.
  */
-int islower(int c)
+/* c parameter for */
+int _islower(int c)
 {
-int res;
+char a;
+int res = 0;
 
-if (islower())
+for (a = 'a'; a <= 'z'; a++)
+{
+if (c == a)
 {
 	res = 1;
 }
-else
-{
-	res = 0;
 }
 return (res);
 }
