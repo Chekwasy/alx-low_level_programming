@@ -1,10 +1,10 @@
 #include "main.h"
 /**
  * _islower - Check description
- * Description: It prints the alphabet in lowercase fall
- * @c -  input parameter
+ * Description: It tells if lower case
+ * @c: - An input parameter
  * d by a new line
- * Return: Nothing.
+ * Return: 1 when true and 0 when false
  */
 int _islower(int c)
 {
