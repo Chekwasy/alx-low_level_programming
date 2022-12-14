@@ -1,53 +1,51 @@
 #include "main.h"
+
 /**
- * print_times_table - Prints all natural numbers from n
- * @n: The number to start printing from
+ * print_times_table - Prints a multiplication table up to param
+ * @n: The number to be treated
  *
- * Return: Always 0.
+ * Return: Number matrix
  */
 void print_times_table(int n)
 {
-	if (n <= 15 && n >= 0)
+	int x, y, z;
+
+	if (n >= 0 && n <= 14)
 	{
-		int c, d, e;
-
-		for (c = 0; c <= n; c++)
+		for (x = 0; x <= n; x++)
 		{
-			for (d = 0; d <= n; d++)
+			for (y = 0; y <= n; y++)
 			{
-				e = c * d;
-
-				if (e <= 9)
+				z = x * y;
+				if (z > 99)
 				{
-					_putchar(e + '0');
-					if (d != n)
-						_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(' ');
+					_putchar(',');
+					_putchar(32);
+					_putchar((z / 100) + '0');
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
 				}
-				else if (e > 9 && e <= 99)
+				else if (z > 9)
 				{
-					_putchar((e / 10) + '0');
-					_putchar((e % 10) + '0');
-					if (d != n)
-						_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
+					_putchar(',');
+					_putchar(32);
+					_putchar(32);
+					_putchar(((z / 10) % 10) + '0');
+					_putchar((z % 10) + '0');
 				}
 				else
 				{
-					_putchar(((e / 10) / 10) + '0');
-					_putchar(((e / 10) % 10) + '0');
-					_putchar((e % 10) + '0');
-					if (d != n)
+					if (y != 0)
+					{
 						_putchar(',');
-					_putchar(' ');
+						_putchar(32);
+						_putchar(32);
+						_putchar(32);
+					}
+					_putchar(z + '0');
 				}
 			}
 			_putchar('\n');
 		}
-
 	}
-
 }
