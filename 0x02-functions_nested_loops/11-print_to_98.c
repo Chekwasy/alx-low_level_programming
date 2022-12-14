@@ -9,7 +9,7 @@
  * Return: Nothing
  */
 
-	void print_t0_98(int n)
+void print98(int n)
 {
 	int c;
 
@@ -17,28 +17,32 @@
 	{
 		for (c = n; c >= 98; c--)
 		{
-			printf("%d", c);
+			_putchar((c / 10) + '0');
+			_putchar((c % 10) + '0');
 			if (c != 98)
 			{
-				printf(", ");
+				_putchar(',');
+				_putchar((' ');
 			}
 		}
-	}
-	if (n < 98)
-	{
-		for (c = n; c <= 98; c++)
+		if (n < 98)
 		{
-			printf("%d", c);
-			if (c < 98)
+			for (c = n; c <= 98; c++)
 			{
-				printf(", ");
+				_putchar((c / 10) + '0');
+				_putchar((c % 10) + '0');
+				if (c < 98)
+				{
+					_putchar(',');
+					_putchar(' ');
+				}
 			}
 		}
+		if (n == 98)
+		{
+			_putchar((c / 10) + '0');
+			_putchar((c % 10) + '0');
+		}
+		_putchar('\n');
+		return (0);
 	}
-	if (n == 98)
-	{
-		printf("%d", n);
-	}
-	printf("\n");
-	return (0);
-}
