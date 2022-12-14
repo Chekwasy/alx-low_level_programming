@@ -1,4 +1,4 @@
-#include <main.h>
+#include "main.h"
 /**
  * print_times_table - Prints all natural numbers from n
  * @n: The number to start printing from
