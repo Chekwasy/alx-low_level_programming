@@ -1,12 +1,11 @@
 #include "main.h"
 /**
  * _islower - Check description
- * Description: It prints the alphabet in lowercase fallow *e\
- * c - parameter
+ * Description: It prints the alphabet in lowercase fall
+ * @c -  input parameter
  * d by a new line
  * Return: Nothing.
  */
-/* c parameter for */
 int _islower(int c)
 {
 char a;
