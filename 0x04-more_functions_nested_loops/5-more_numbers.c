@@ -1,4 +1,4 @@
-#include "main.h"
+#include "stdio.h"
 /**
  * more_numbers - Check description
  * Description: prints 1 to 9 aside 2 & 4 with new line
@@ -13,26 +13,26 @@ void more_numbers(void)
 
 	while (n < 10)
 	{
-	char a;
+		char a;
 
-	for (a = '0'; a <= '9'; a++)
-	{
-		char b;
-
-		for (b = '0'; b <= '9'; b++)
+		for (a = '0'; a <= '9'; a++)
 		{
-			if (a == '0')
+			char b;
+
+			for (b = '0'; b <= '9'; b++)
 			{
-				_putchar(b);
-			}
-			if (a == '1' && b < '5')
-			{
-				_putchar(a);
-				_putchar(b);
+				if (a == '0' || a == '1')
+				{
+					if (a == '1' && b < '5')
+					{
+						_putchar(a);
+					}
+					if (!(a == '1' && b >= '5'))
+						_putchar(b);
+				}
 			}
 		}
-		_putchar('\n');
 		n++;
-	}
+		_putchar('\n');
 	}
 }
