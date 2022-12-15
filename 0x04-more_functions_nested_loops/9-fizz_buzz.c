@@ -1,35 +1,40 @@
 #include <stdio.h>
-#include "main.h"
+
 /**
- * main - Check description
- * Description: It tells if lower case
- * : - An input parameter
- * d by a new line
- * Return: 1 when true and 0 when false
+ * main - Fizz Buzz code
+ *
+ * Return: void
  */
 
 int main(void)
 {
-	int n;
+	int i = 1;
 
-	for (n = 1; n <= 100; n++)
+	while (i <= 100)
 	{
-		if (n % 3 == 0 && n % 5 != 0)
+		if (i % 3 == 0 && i % 5 == 0)
 		{
-			printf("Fizz ");
+			printf("FizzBuzz");
 		}
-		else if (n % 5 == 0 && n % 3 != 0)
+		else if (i % 3 == 0)
 		{
-			printf("Buzz ");
+			printf("Fizz");
 		}
-		else if (n % 3 == 0 && n % 5 == 0)
+		else if (i % 5 == 0)
 		{
-			printf("FizzBuzz ");
+			printf("Buzz");
 		}
 		else
 		{
-			printf("%d ", n);
+			printf("%i", i);
 		}
+		if (i != 100)
+		{
+			putchar(' ');
+		}
+
+		i++;
 	}
-	printf("\n");
+	putchar('\n');
+	return (0);
 }
