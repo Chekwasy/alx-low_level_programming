@@ -1,0 +1,17 @@
+#include "main.h"
+/**
+ *
+int _isupper(int c)
+{
+	int n = 0;
+	char a;
+
+	for (a = 'A'; a <= 'Z'; a++)
+	{
+		if (a == c)
+		{
+			n = 1;
+		}
+	}
+	return (n);
+}
