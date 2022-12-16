@@ -1,4 +1,4 @@
-include "main.h"
+#include "main.h"
 
 /**
  * print_diagonal - diagonal lines made of backslashes
@@ -8,21 +8,21 @@ include "main.h"
 
 void print_diagonal(int n)
 {
-	int i = 0, ii;
-
-	while (i < n && n > 0)
+	if (n <= 0)
 	{
-		ii = 0;
-		while (ii < i)
-		{
-			_putchar(' ');
-			ii++;
-		}
-
-		_putchar('\\');
 		_putchar('\n');
-		i++;
 	}
-	if (i == 0)
-		_putchar('\n');
+	else
+	{
+	       int c, d;
+
+	       for (c = 1; c < n; c++)
+	       {
+		       for (d = 1; d < c; d++)
+		       {
+			       _putchar(' ');
+		       }
+		       _putchar('\\');
+		       _putchar('\n');
+	       }
 }
