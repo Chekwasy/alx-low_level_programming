@@ -32,5 +32,6 @@ int main(void)
 			}
 		}
 	}
-	printf("%lld\n", num);
+	printf("%lu\n", num);
+	return (0);
 }
