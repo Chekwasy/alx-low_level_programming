@@ -1,25 +1,28 @@
+#include "main.h"
+
 /**
- * print_diagonal - Check description
- * Description: It tells if lower case
- * @n: - An input parameter
- * d by a new line
- * Return: 1 when true and 0 when false
+ * print_diagonal - diagonal lines made of backslashes
+ * @n: number of \ to be printed
+ * Return: void
  */
 
 void print_diagonal(int n)
 {
-	int c;
+	int i = 0, ii;
 
-	if (n <= 0)
+	while (i < n && n > 0)
 	{
-		n = 0;
-	}
-	else
-	{
-		for (c = 1; c <= n; c++)
+		ii = 0;
+		while (ii < i)
 		{
-			_putchar('\\');
+			_putchar(' ');
+			ii++;
 		}
+
+		_putchar('\\');
+		_putchar('\n');
+		i++;
 	}
-	_putchar('\n');
+	if (i == 0)
+		_putchar('\n');
 }
