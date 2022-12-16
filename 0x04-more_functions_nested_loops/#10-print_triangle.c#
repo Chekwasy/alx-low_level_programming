@@ -8,9 +8,11 @@ include "main.h"
 
 void print_triangle(int size)
 {
-	int c, d;
+	int c, d, e;
 
-	if (size <= 0)
+	e = n;
+
+	if (size <= 0);
 	{
 		_putchar('\n');
 	}
@@ -20,13 +22,13 @@ void print_triangle(int size)
 		{
 			for (d = 1; d <= size; d++)
 			{
-				if (c < (size - d + 1))
+				if (d < (c + 1))
 				{
-					_putchar(' ');
+					_putchar('#');
 				}
 				else
 				{
-					_putchar('#');
+					_putchar(' ');
 				}
 			}
 			_putchar('\n');
