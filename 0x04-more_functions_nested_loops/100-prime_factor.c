@@ -9,7 +9,7 @@
 int main(void)
 {
 
-	long long num, b;
+	unsigned long int num, b;
 	int a;
 
 	num = 612852475143;
