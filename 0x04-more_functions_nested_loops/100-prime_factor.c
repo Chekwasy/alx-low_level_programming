@@ -1,4 +1,4 @@
-include <stdio.h>
+#include <stdio.h>
 
 /**
  * main - prime numbers
@@ -8,19 +8,29 @@ include <stdio.h>
 
 int main(void)
 {
-	long num = 612852475143;
-	long divisor = 2;
-	long larg_prim = 0;
 
-	while (num != 1)
+	long long num, b;
+	int a;
+
+	num = 612852475143;
+
+	for (a = 1; a < 5; a++)
 	{
-		if (num % divisor == 0)
+		if (num % 3 == 0)
 		{
-			num = num / divisor;
-			larg_prim = divisor;
+			num = num / 3;
 		}
-		divisor += 1;
 	}
-	printf("%ld\n", larg_prim);
-	return (0);
+	for (b = 1; b < num; b++)
+	{
+		if (b > 3)
+		{
+			if (num % b == 0)
+			{
+				num = num / b;
+				continue;
+			}
+		}
+	}
+	printf("%lld", num);
 }
