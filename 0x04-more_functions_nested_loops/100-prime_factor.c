@@ -32,5 +32,5 @@ int main(void)
 			}
 		}
 	}
-	printf("%lld", num);
+	printf("%lld\n", num);
 }
