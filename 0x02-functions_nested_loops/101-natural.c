@@ -7,7 +7,8 @@
  */
 int main(void)
 {
-	int i, num, sum = 0;
+	int i, num;
+	long int sum = 0;
 
 	for (i = 1; i < 1024; i++)
 	{
@@ -16,5 +17,5 @@ int main(void)
 			sum = sum + i;
 		}
 	}
-	printf("%d\n", sum);
+	printf("%ld\n", sum);
 }
