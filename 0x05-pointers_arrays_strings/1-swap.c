@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * reset_to_98 - Check description
+ * swap_int - Check description
  * Description: It tells if lower case
  * @a: - An input parameter
  * @b: - second parameter
