@@ -19,9 +19,6 @@ void print_array(int *a, int n)
 		{
 			printf(", ");
 		}
-		if (i == (n - 1))
-		{
-			printf("\n");
-		}
 	}
+	printf("\n");
 }
