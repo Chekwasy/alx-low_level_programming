@@ -1,1 +1,1 @@
-C programming low level
+readme of more pointers and string
