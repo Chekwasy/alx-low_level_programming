@@ -22,14 +22,13 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 
 	}
-	printf("%d", b);
 	if (n >= b)
 	{
 		for (c = 0; c < b; c++)
 		{
 			dest[c] = *(src + c);
 		}
-		for (c; c < n; c++)
+		for (; c < n; c++)
 		{
 			dest[c] = '\0';
 		}
