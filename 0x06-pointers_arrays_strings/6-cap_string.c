@@ -14,7 +14,6 @@ char *cap_string(char *str)
 	int d;
 	int e;
 char n[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
-	char *retpt;
 
 	for (len = 0; str[len] != '\0'; len++)
 	{
@@ -38,6 +37,5 @@ char n[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 			}
 		}
 	}
-	retpt = str;
-	return (retpt);
+	return (str);
 }
