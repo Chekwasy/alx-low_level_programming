@@ -7,32 +7,38 @@
  * Return: A pointer to the changed string.
  */
 char *cap_string(char *str)
+{
+	int len;
+	int b;
+	int c;
+	int d;
+	int e;
+	int chk = 0;
+	char nch[] = " \t\n,;.!?\"(){}";
+	char *retpt;
 
-	int index = 0;
-
-	while (str[index])
+	for (len = 0; str[len] != '\0'; len++)
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-		if (str[index - 1] == ' ' ||
-		    str[index - 1] == '\t' ||
-		    str[index - 1] == '\n' ||
-		    str[index - 1] == ',' ||
-		    str[index - 1] == ';' ||
-		    str[index - 1] == '.' ||
-		    str[index - 1] == '!' ||
-		    str[index - 1] == '?' ||
-		    str[index - 1] == '"' ||
-		    str[index - 1] == '(' ||
-		    str[index - 1] == ')' ||
-		    str[index - 1] == '{' ||
-		    str[index - 1] == '}' ||
-		    index == 0)
-			str[index] -= 32;
-
-		index++;
 	}
-
-	return (str);
+	for (d = 0; nch[d] != '\0'; d++)
+	{
+	}
+	for (b = 0; b < len; b++)
+	{
+		for (e = 0; e < d; e++)
+		{
+			if (str[b - 1] == nch[e])
+			{
+				for (c = 'a'; c <= 'z'; c++)
+				{
+					if (c ==  str[b])
+					{
+						str[b] = str[b] - 32;
+					}
+				}
+			}
+		}
+	}
+	retpt = str;
+	return (retpt);
 }
