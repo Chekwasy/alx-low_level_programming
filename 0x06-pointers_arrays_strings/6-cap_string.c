@@ -13,7 +13,6 @@ char *cap_string(char *str)
 	int c;
 	int d;
 	int e;
-	int chk = 0;
 	char nch[] = " \t\n,;.!?\"(){}";
 	char *retpt;
 
