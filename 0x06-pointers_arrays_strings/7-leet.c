@@ -7,21 +7,24 @@
  * Return: A pointer to the encoded string.
  */
 char *leet(char *str)
+{
+	int a = 0;
+	int b;
+	char arr1[5] = "aeotl";
+	char arr2[5] = "AEOTL";
+	char arr3[5] = "43071";
 
-	int indx1 = 0, indx2;
-	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
-
-	while (str[indx1])
+	while (*(str + a) != '\0')
 	{
-		for (indx2 = 0; indx2 <= 7; indx2++)
+		for (b = 0; b < 5; b++)
 		{
-			if (str[indx1] == leet[indx2] ||
-			    str[indx1] - 32 == leet[indx2])
-				str[indx1] = indx2 + '0';
+			if (*(str + a) == arr1[b] ||
+			    *(str + a) == arr2[b])
+			{
+				*(str + a) = arr3[b];
+			}
 		}
-
-		indx1++;
+		a++;
 	}
-
 	return (str);
 }
