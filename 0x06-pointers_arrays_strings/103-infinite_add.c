@@ -45,7 +45,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 			carry = tst / 10;
 		}
 	}
-	if ((carry == 0 && (a + 1) < size_r) || (carry > 0 && (a + 2) ==  size_r))
+	if (((carry == 0 && (a + 1) < size_r) && n1len != n2len) ||
+	    (carry > 0 && (a + 2) ==  size_r))
 		return (0);
 	if (carry > 0)
 	{
