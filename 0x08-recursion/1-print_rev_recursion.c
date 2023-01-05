@@ -9,11 +9,11 @@ void _print_rev_recursion(char *s)
 	{
 		s++;
 		_print_rev_recursion(s);
-		putchar(*s);
+		_putchar(*s);
 	}
 
 	if (*s == *(s + 1))
 	{
-		putchar(*(s - 1));
+		_putchar(*(s - 1));
 	}
 }
