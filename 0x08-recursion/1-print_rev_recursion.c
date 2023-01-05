@@ -1,4 +1,6 @@
 #include "main.h"
+#include <string.h>
+#include <stdio.h>
 /**
  * _print_rev_recursion - Check description
  * Description: reverse recursion
@@ -10,7 +12,7 @@ void _print_rev_recursion(char *s)
 {
 	int n;
 
-	if (*s == NULL)
+	if (s == NULL)
 	{
 		return;
 	}
