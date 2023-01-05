@@ -7,5 +7,5 @@ if (*s != '\0')
 {
 	s++;
 	_print_rev_recursion(s);
-	putchar(*s);
+	_putchar(*s);
 }
