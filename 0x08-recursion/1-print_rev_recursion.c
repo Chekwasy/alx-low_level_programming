@@ -1,7 +1,5 @@
 #include "main.h"
-#include <string.h>
-#include <stdio.h>
-/**
+ /**
  * _print_rev_recursion - Check description
  * Description: reverse recursion
  * @s: - An input parameter
@@ -10,25 +8,9 @@
  */
 void _print_rev_recursion(char *s)
 {
-	int n;
-
-	if (s == NULL)
+	if (*s)
 	{
-		return;
-	}
-	if (*s == '\n')
-	{
-		n = strlen(s) - 1;
-		s = s + n;
-	}
-	if (*s != '\n')
-	{
-		_putchar(*(s));
-		s--;
-		if (*s != '\n')
-		{
-			_print_rev_recursion(s);
-		}
-		_putchar('\n');
+		_print_rev_recursion(s + 1);
+		_putchar(*s);
 	}
 }
