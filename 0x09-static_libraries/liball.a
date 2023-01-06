@@ -419,19 +419,6 @@ int _isalpha(int c)
 	return (res);
 }
 
-4-puts.c/       0           0     0     644     176       `
-#include <stdio.h>
-
-/**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
-int main(void)
-{
-puts("\"Programming is like building a multilingual puzzle");
-return (0);
-}
 4-strpbrk.c/    0           0     0     644     545       `
 #include "main.h"
 #include <string.h>
