@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * main - Check description                                 * Description: It tells if lower case
+ * main - Check description
+ * Description: It tells if lower case
  * @argc: - An input parameter
  * @argv: - Another parameterd
  * Return: 0
