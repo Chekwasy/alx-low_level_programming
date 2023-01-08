@@ -1,24 +1,16 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-/**
- * main - Takes in exactly one argument for minimum coin count
- * @argc: Number of command line arguments
- * @argv: Array name
- * Return: 0 if exactly 1 argument is passed into this program, 1 otherwise
- */
 
 /**
- * _checkchange - Running change with loop
+ * _checkChange - Running change with loop
  * Description: It tells if lower case
  * @n: - An input parameter
  * @c: - Another input parameter
  * @val: - last input parameter
  * Return: 1 when true and 0 when false
  */
-int main(int argc, char *argv[]);
-int checkchange(int *n, int *c, int val);
-int _checkchange(int *n, int *c, int val)
+int _checkChange(int *n, int *c, int val)
 {
 	if (*n >= val)
 	{
@@ -36,6 +28,15 @@ int _checkchange(int *n, int *c, int val)
 	}
 	return (1);
 }
+
+/**
+ * main - Takes in exactly one argument for minimum coin c\
+ount
+* @argc: Number of command line arguments
+* @argv: Array name
+* Return: 0 if exactly 1 argument is passed into this pro\
+gram, 1 otherwise
+*/
 int main(int argc, char *argv[])
 {
 	int num;
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
 	count = 0;
 	for (a = 0; a < 5; a++)
 	{
-		if ((_checkchange(&num, &count, arr[a])) == 0)
+		if ((_checkChange(&num, &count, arr[a])) == 0)
 		{
 			break;
 		}
