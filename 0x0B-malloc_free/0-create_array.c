@@ -2,10 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * _islower - Check description
+ * create_array - Check description
  * Description: It tells if lower case
- * @c: - An input parameter
- * d by a new line
+ * @size: - An input parameter
+ * @c: - A parameter
  * Return: 1 when true and 0 when false
  */
 
