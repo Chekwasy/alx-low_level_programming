@@ -1,0 +1,39 @@
+#include "main.h"
+#include <stdlib.h>
+#include <string.h>
+/**
+ * alloc_grid - Check description
+ * Description: It tells if lower case
+ * @width: - An input parameter
+ * @height: - Input
+ * Return: 1 when true and 0 when false
+ */
+int **alloc_grid(int width, int height)
+{
+	int a;
+	int b;
+	int **ptr;
+
+	ptr = malloc(sizeof(int) * width);
+	if (ptr == NULL || width <= 0)
+		return (NULL);
+	for (a = 0; a < width; a++)
+	{
+		ptr[a] = malloc(sizeof(int) * height);
+			if (ptr[a] == NULL)
+			{
+				for (; a >= 0; a--)
+					free(ptr[a]);
+				free(ptr);
+				return (NULL);
+			}
+	}
+	for (a = 0; a < width; a++)
+	{
+		for (b = 0; b < height; b++)
+		{
+			(ptr[a][b]) = 0;
+		}
+	}
+	return (ptr);
+}
