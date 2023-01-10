@@ -1,39 +1,47 @@
 #include "main.h"
 #include <stdlib.h>
-#include <string.h>
+
 /**
- * alloc_grid - Check description
- * Description: It tells if lower case
- * @width: - An input parameter
- * @height: - Input
- * Return: 1 when true and 0 when false
+ * alloc_grid - Returns a pointer to a 2-dimensional array of
+ *               integers with each element initalized to 0.
+ * @width: The width of the 2-dimensional array.
+ * @height: The height of the 2-dimensional array.
+ *
+ * Return: If width <= 0, height <= 0, or the function fails - NULL.
+ *         Otherwise - a pointer to the 2-dimensional array of integers.
  */
 int **alloc_grid(int width, int height)
 {
-	int a;
-	int b;
-	int **ptr;
+	int **twoD;
+	int hgt_index, wid_index;
 
-	ptr = malloc(sizeof(int) * width);
-	if (ptr == NULL || width <= 0)
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	for (a = 0; a < width; a++)
+
+	twoD = malloc(sizeof(int *) * height);
+
+	if (twoD == NULL)
+		return (NULL);
+
+	for (hgt_index = 0; hgt_index < height; hgt_index++)
 	{
-		ptr[a] = malloc(sizeof(int) * height);
-			if (ptr[a] == NULL)
-			{
-				for (; a >= 0; a--)
-					free(ptr[a]);
-				free(ptr);
-				return (NULL);
-			}
-	}
-	for (a = 0; a < height; a++)
-	{
-		for (b = 0; b < width; b++)
+		twoD[hgt_index] = malloc(sizeof(int) * width);
+
+		if (twoD[hgt_index] == NULL)
 		{
-			(ptr[a][b]) = 0;
+			for (; hgt_index >= 0; hgt_index--)
+				free(twoD[hgt_index]);
+
+			free(twoD);
+			return (NULL);
 		}
 	}
-	return (ptr);
+
+	for (hgt_index = 0; hgt_index < height; hgt_index++)
+	{
+		for (wid_index = 0; wid_index < width; wid_index++)
+			twoD[hgt_index][wid_index] = 0;
+	}
+
+	return (twoD);
 }
