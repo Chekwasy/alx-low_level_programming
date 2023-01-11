@@ -4,6 +4,7 @@
 /**
  * alloc_grid - Check description
  * Description: It tells if lower case
+ * 
  * @width: - An input parameter
  * @height: - Input
  * Return: 1 when true and 0 when false
@@ -16,12 +17,12 @@ int **alloc_grid(int width, int height)
 
 	if (height <= 0 || width <= 0)
 		return (NULL);
-	ptr = malloc(sizeof(int *) * width);
+	ptr = malloc(sizeof(int *) * height);
 	if (ptr == NULL)
 		return (NULL);
-	for (a = 0; a < width; a++)
+	for (a = 0; a < height; a++)
 	{
-		ptr[a] = malloc(sizeof(int) * height);
+		ptr[a] = malloc(sizeof(int) * width);
 		if (ptr[a] == NULL)
 		{
 			for (; a >= 0; a--)
@@ -30,9 +31,9 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 	}
-	for (a = 0; a < width; a++)
+	for (a = 0; a < height; a++)
 	{
-		for (b = 0; b < height; b++)
+		for (b = 0; b < width; b++)
 		{
 			ptr[a][b] = 0;
 		}
