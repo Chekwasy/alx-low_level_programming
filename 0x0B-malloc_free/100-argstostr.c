@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 /**
  * argstostr - Check description
  * Description: It tells if lower case
@@ -10,18 +11,33 @@
  */
 char *argstostr(int ac, char **av)
 {
-	char **ptr;
+	char *ptr;
 	int i;
+	int n;
+	int strln;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-	ptr = malloc(sizeof(char *) * ac);
-	if (ptr == NULL)
-		return (NULL);
 	for (i = 0; i < ac; i++)
 	{
-		ptr[i] = av[i];
-		printf("%s\n", ptr[i]);
+		strln = strlen(av[i]);
+		ptr = malloc(sizeof(char) * strln);
+		if (ptr == NULL)
+			return (NULL);
+		for (n = 0; n <= strln; n++)
+		{
+			if (n != strln)
+			{
+				ptr[n] =*(av[i] + n);
+			}
+			if (n == strln)
+				ptr[n] = '\0';
+		}
+		for (n = 0; n <= strln; n++)
+		{
+			printf("%c", ptr[n]);
+		}
+		printf("\n");
 	}
-	return (*ptr);
+	return (ptr);
 }
