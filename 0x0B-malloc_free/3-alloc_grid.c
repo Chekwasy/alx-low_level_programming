@@ -4,7 +4,6 @@
 /**
  * alloc_grid - Check description
  * Description: It tells if lower case
- * 
  * @width: - An input parameter
  * @height: - Input
  * Return: 1 when true and 0 when false
