@@ -1,45 +1,43 @@
 #include "main.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+#include <string.h>
 /**
- * argstostr - Concatenates all arguments of the program into a string;
- *             arguments are separated by a new line in the string.
- * @ac: The number of arguments passed to the program.
- * @av: An array of pointers to the arguments.
- *
- * Return: If ac == 0, av == NULL, or the function fails - NULL.
- *         Otherwise - a pointer to the new string.
+ * argstostr - Check description
+ * Description: It tells if lower case
+ * @ac: - An input parameter
+ * @av: -d by a new line
+ * Return: 1 when true and 0 when false
  */
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int arg, byte, index, size = ac;
+	int strln = 0;
+	int a;
+	int ch;
+	int b;
+	int c = 0;
+	char *ptr;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	for (arg = 0; arg < ac; arg++)
+	for (a = 0; a < ac; a++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			size++;
+		strln = strln + strlen(av[a]);
 	}
-
-	str = malloc(sizeof(char) * size + 1);
-
-	if (str == NULL)
+	strln = strln + ac;
+	ptr = malloc(sizeof(char) * strln);
+	if (ptr == NULL)
 		return (NULL);
-
-	index = 0;
-
-	for (arg = 0; arg < ac; arg++)
+	for (a = 0; a < ac; a++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			str[index++] = av[arg][byte];
-
-		str[index++] = '\n';
+		ch = strlen(av[a]);
+		for (b = 0; b < ch; b++)
+		{
+			ptr[c] = av[a][b];
+			c++;
+		}
+		ptr[c++] = '\n';
 	}
-
-	str[size] = '\0';
-
-	return (str);
+	ptr[strln] = '\0';
+	return (ptr);
 }
