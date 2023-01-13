@@ -4,9 +4,9 @@
 #include <string.h>
 
 /**
- * simple_print_buffer - prints buffer in hexa
- * @buffer: the address of memory to print
- * @size: the size of the memory to pr
+ * main - prints buffer in hexa
+ * @argc: the address of memory to print
+ * @argv: the size of the memory to pr
  * Return: Nothing.
  */
 void main(int argc, char *argv[])
