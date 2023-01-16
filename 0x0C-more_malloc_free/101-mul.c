@@ -9,7 +9,7 @@
  * @argv: the size of the memory to pr
  * Return: Nothing.
  */
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char *num1;
 	char *num2;
@@ -26,7 +26,7 @@ void main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		exit(98);
-		return;
+		return (1);
 	}
 	len1 = strlen(argv[1]);
 	len2 = strlen(argv[2]);
@@ -45,7 +45,7 @@ void main(int argc, char *argv[])
 	nm1 = malloc(sizeof(int) * len1);
 	nm2 = malloc(sizeof(int) * len2);
 	if (num1 == NULL || num2 == NULL)
-		return;
+		return (1);
 	for (a = 0; a < len1; a++)
 	{
 		chk = *(num1 + a) - 48;
@@ -53,7 +53,7 @@ void main(int argc, char *argv[])
 		{
 			printf("Error\n");
 			exit(98);
-			return;
+			return (1);
 		}
 		nm1[a] = chk;
 	}
@@ -64,14 +64,14 @@ void main(int argc, char *argv[])
 		{
 			printf("Error\n");
 			exit(98);
-			return;
+			return (1);
 		}
 		nm2[a] = chk;
 	}
-	res = calloc(len3, sizeof(int *));
-	if (res == NULL)
-		return;
 	len3 = len1 + len2;
+	res = malloc(len3 * sizeof(int *));
+	if (res == NULL)
+		return (1);
 	for (a = 0; a < len3; a++)
 	{
 		res[a] = calloc((len2 + 1), sizeof(int));
@@ -81,7 +81,7 @@ void main(int argc, char *argv[])
 			{
 				free(res[a]);
 				free(res);
-				return;
+				return (1);
 			}
 		}
 	}
@@ -94,23 +94,17 @@ void main(int argc, char *argv[])
 		a = len1 - 1;
 		for (; a >= 0; a--)
 		{
-			//printf("b = %d a = %d\n", b, a);
 			chk = (nm2[b] * nm1[a]) + rem;
 			rem = 0;
-			//printf("chk = %d\n", chk);
 			if (chk / 10 != 0)
 				rem = rem + (chk / 10);
 			else
 				rem = 0;
-			//printf("rem = %d\n", rem);
 			res[uslen][c] = chk % 10;
-			//printf("%d", res[uslen][c]);
 			uslen--;
 		}
 		res[uslen][c] = rem;
-		//printf("%d", res[uslen][c]);
 		rem = 0;
-		//printf("\n");
 		c++;
 		uslen = len3 - l;
 	}
@@ -122,7 +116,6 @@ void main(int argc, char *argv[])
 		for (b = 0; b < len2; b++)
 		{
 			chk += res[a][b];
-			//printf("%d", res[a][b]);
 		}
 		chk = chk + rem;
 		if (chk > 9)
@@ -135,16 +128,15 @@ void main(int argc, char *argv[])
 			res[a][len2] = chk;
 			rem = 0;
 		}
-		//printf("%d", res[a][len2]);
 		chk = 0;
 	}
-	//printf("\n");
 	for (a = 0; a < len3; a++)
 	{
 		if (res[a][len2] != 0 && a == 0)
 			printf("%d", res[a][len2]);
 		if (a != 0)
-			printf("%d", res[a][len2]);
+			_putchar(res[a][len2] + '0');
 	}
-	printf("\n");
+	_putchar('\n');
+	return (0);
 }
