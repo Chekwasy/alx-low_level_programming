@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include <stddef.h>
 /**
- * struct op - Struct op
+ * get_op_func - Struct op
  *
- * @op: The operator
- * @f: The function associated
+ * @s: The function associated
+ * Return: int
  */
 int (*get_op_func(char *s))(int, int)
 {
