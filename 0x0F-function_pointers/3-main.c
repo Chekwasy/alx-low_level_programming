@@ -18,7 +18,6 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		exit(98);
-		return (1);
 	}
 
 	num1 = atoi(argv[1]);
@@ -30,13 +29,11 @@ int main(int argc, char *argv[])
 	{
 		printf("Error\n");
 		exit(100);
-		return (1);
 	}
 	if (get_op_func(operator) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
-		return (1);
 	}
 	printf("%d\n", get_op_func(operator)(num1, num2));
 	return (0);
