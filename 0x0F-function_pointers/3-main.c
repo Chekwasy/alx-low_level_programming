@@ -1,17 +1,17 @@
 #include "3-calc.h"
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
+#include <stdio.h>
 /**
- * main - program to perform simple operations
- * @argc: argument count
- * @argv: array of arguments
- * Return: exits 0 normally, 98 on argc error, 99 on illegal operator
+ * main - Prints the result of simple operations.
+ * @argc: The number of arguments supplied to the program.
+ * @argv: An array of pointers to the arguments.
+ *
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int (*func)(int, int);
+	int num1, num2;
+	char *operator;
 
 	if (argc != 4)
 	{
@@ -19,13 +19,21 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	func = get_op_func(argv[2]);
-	if (func == NULL)
+	num1 = atoi(argv[1]);
+	operator = argv[2];
+	num2 = atoi(argv[3]);
+
+	if ((num2 == 0 && *operator == '%') ||
+	    (num2 == 0 && *operator == '/'))
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	if (get_op_func(operator) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-
-	printf("%d\n", func(atoi(argv[1]), atoi(argv[3])));
+	printf("%d\n", get_op_func(operator)(num1, num2));
 	return (0);
 }
