@@ -14,27 +14,17 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fileRep, i = 0, wrt, len;
-	char *str;
+	int fileRep, wrt, len;
 
 	if (filename == NULL)
 		return (-1);
-	fileRep = open(filename, O_WRONLY | O_CREAT);
+	fileRep = open(filename, O_RDWR | O_CREAT);
 	if (fileRep < 0)
 		return (-1);
 	len = strlen(text_content);
-	str = malloc(sizeof(char) * len);
-	if (str == NULL)
-		return (-1);
-	while (i < len)
-	{
-		str[i] = text_content[i];
-		i++;
-	}
-	wrt = write(fileRep, str, len);
+	wrt = write(fileRep, text_content, len);
 	if (wrt < 0)
 		return (-1);
-	free(str);
 	close(fileRep);
 	return (1);
 }
