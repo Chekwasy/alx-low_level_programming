@@ -3,7 +3,8 @@
 #include <sys/uio.h>
 #include <unistd.h>
 #include <fcntl.h>
-
+#include <stdlib.h>
+#include <string.h>
 /**
  * create_file - A function that creates a file
  * @filename: The filename to create
@@ -13,21 +14,27 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-	int fdo, fdw, len = 0;
+	int fileRep, i = 0, wrt, len;
+	char *str;
 
 	if (filename == NULL)
 		return (-1);
-
-	fdo = open(filename, O_RDWR | O_CREAT | O_TRUNC, 0600);
-	if (fdo < 0)
+	fileRep = open(filename, O_WRONLY | O_CREAT);
+	if (fileRep < 0)
 		return (-1);
-
-	while (text_content && *(text_content + len))
-		len++;
-
-	fdw = write(fdo, text_content, len);
-	close(fdo);
-	if (fdw < 0)
+	len = strlen(text_content);
+	str = malloc (sizeof(char) * len);
+	if (str == NULL)
 		return (-1);
+	while (i < len)
+	{
+		str[i] = text_content[i];
+		i++;
+	}
+	wrt = write(fileRep, str, len);
+	if (wrt < 0)
+		return (-1);
+	free(str);
+	close(fileRep);
 	return (1);
 }
