@@ -56,9 +56,11 @@ int main(int argc, char *argv[])
 			exit(99);
 		}
 	}
-	close_file(file1);
-	close_file(file2);
-	return (1);
+	rd = close_file(file1);
+	wrt = close_file(file2);
+	if (rd < 0 || wrt < 0)
+		exit(100);
+	return (0);
 }
 /**
  * close_file - Close files
@@ -73,7 +75,6 @@ int close_file(int fl)
 	if (cl < 0)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", cl);
-		exit(100);
 	}
-	return (1);
+	return (cl);
 }
