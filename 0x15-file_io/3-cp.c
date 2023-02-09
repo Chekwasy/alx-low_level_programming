@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while (rd != 0)
+	while (rd > 0)
 	{
 		rd = read(file1, ptr, 1024);
 		if (rd < 0)
