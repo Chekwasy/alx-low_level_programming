@@ -72,7 +72,7 @@ int close_file(int fl)
 	cl = close(fl);
 	if (cl < 0)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", cl);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", cl);
 		exit(100);
 	}
 	return (1);
