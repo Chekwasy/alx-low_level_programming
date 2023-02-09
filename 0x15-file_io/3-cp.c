@@ -26,7 +26,6 @@ int main(int argc, char *argv[])
 	if (file1 < 0)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
-		close_file(file1);
 		exit(98);
 	}
 	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
@@ -34,14 +33,18 @@ int main(int argc, char *argv[])
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		close_file(file1);
-		close_file(file2);
 		exit(99);
 	}
-	while (rd > 0)
+	while (rd)
 	{
 		rd = read(file1, ptr, 1024);
 		if (rd < 0)
-			return (0);
+		{
+			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			close_file(file1);
+			close_file(file2);
+			exit(98);
+		}
 		if (rd == 0)
 			break;
 		wrt = write(file2, ptr, rd);
