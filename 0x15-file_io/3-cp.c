@@ -5,7 +5,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+int close_file(int fl);
 /**
  * main - Main function to copy files
  * @argc: The number of passed arguments
@@ -14,8 +14,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int file1, file2, rd, wrt, cl1, cl2;
-	char *ptr;
+	int file1, file2, rd, wrt;
+	char ptr[1024];
 
 	if (argc != 3)
 	{
@@ -34,30 +34,38 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	ptr = malloc(sizeof(char) * 1024);
-	if (ptr == NULL)
-		return (0);
-	rd = read(file1, ptr, 1024);
-	if (rd < 0)
-		return (0);
-	wrt = write(file2, ptr, 1024);
-	if (wrt < 0)
+	while (rd != 0)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
-		exit(99);
+		rd = read(file1, ptr, 1024);
+		if (rd < 0)
+			return (0);
+		if (rd == 0)
+			break;
+		wrt = write(file2, ptr, rd);
+		if (wrt < 0)
+		{
+			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
+		}
 	}
-	cl1 = close(file1);
-	if (cl1 < 0)
+	close_file(file1);
+	close_file(file2);
+	return (1);
+}
+/**
+ * close_file - Close files
+ * @fl: file
+ * Return: 1 on success
+ */
+int close_file(int fl)
+{
+	int cl;
+
+	cl = close(fl);
+	if (cl < 0)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", cl1);
+		dprintf(2, "Error: Can't close fd %i\n", cl);
 		exit(100);
 	}
-	cl2 = close(file2);
-	if (cl2 < 0)
-	{
-		dprintf(2, "Error: Can't close fd %i\n", cl2);
-		exit(100);
-	}
-	free(ptr);
 	return (1);
 }
