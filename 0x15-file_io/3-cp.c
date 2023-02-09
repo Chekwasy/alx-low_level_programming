@@ -4,9 +4,11 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdio.h>
-#include <stdlib.h>                                        int close_file(int fl);
+#include <stdlib.h>
+int close_file(int fl);
 /**
- * main - Main function to copy files                       * @argc: The number of passed arguments
+ * main - Main function to copy files
+ * @argc: The number of passed arguments
  * @argv: The pointers to array arguments
  * Return: 1 on success, exits on failure
  */
@@ -17,8 +19,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp %s %s\n", argv[1], a\
-			rgv[1]);
+		dprintf(2, "Usage: cp %s %s\n", argv[1], argv[1]);
 		exit(97);
 	}
 	file1 = open(argv[1], O_RDONLY | O_CREAT);
