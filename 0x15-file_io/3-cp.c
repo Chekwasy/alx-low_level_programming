@@ -19,19 +19,19 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp %s %s\n", argv[1], argv[1]);
+		dprintf(STDERR_FILENO, "Usage: cp %s %s\n", argv[1], argv[1]);
 		exit(97);
 	}
 	file1 = open(argv[1], O_RDONLY | O_CREAT);
 	if (file1 < 0)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file2 < 0)
 	{
-		dprintf(2, "Error: Can't write to %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		close_file(file1);
 		exit(99);
 	}
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 		rd = read(file1, ptr, 1024);
 		if (rd < 0)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			close_file(file1);
 			close_file(file2);
 			exit(98);
@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 		wrt = write(file2, ptr, rd);
 		if (wrt < 0)
 		{
-			dprintf(2, "Error: Can't write to %s\n", argv[2]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			close_file(file1);
 			close_file(file2);
 			exit(99);
