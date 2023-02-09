@@ -14,7 +14,7 @@ int close_file(int fl);
  */
 int main(int argc, char *argv[])
 {
-	int file1, file2, rd, wrt;
+	int file1, file2, rd = 1, wrt;
 	char ptr[1024];
 
 	if (argc != 3)
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 		dprintf(2, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	file2 = open(argv[2], O_RDWR | O_CREAT | O_TRUNC, 0664);
+	file2 = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file2 < 0)
 	{
 		dprintf(2, "Error: Can't write to %s\n", argv[2]);
