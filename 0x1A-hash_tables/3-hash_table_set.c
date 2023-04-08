@@ -24,14 +24,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	if (strcmp(key, elem->key) == 0)
 	{
-		elem->value = strdup(value);
-		new_node = malloc(sizeof(hash_node_t));
-		if (new_node == NULL)
-			return (0);
-		new_node->key = strdup(key);
-		new_node->value = strdup(value);
-		new_node->next = ht->array[idx];
-		ht->array[0] = new_node;
+		ht->array[0]->key = strdup(key);
+		ht->array[0]->value = strdup(value);
+		ht->array[0]->next = ht->array[idx];
 		return (1);
 	}
 
