@@ -45,4 +45,5 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[hs] = hn;
 		return (1);
 	}
+	return (0);
 }
