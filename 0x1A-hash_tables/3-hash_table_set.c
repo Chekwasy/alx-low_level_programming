@@ -21,23 +21,21 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (value == NULL)
 		return (0);
 	hs = key_index((unsigned char *)key, ht->size);
-	hn = malloc(sizeof(hash_node_t *));
+	if (ht->array[hs] && strcmp(ht->array[hs]->key, key) == 0)
+	{
+		free(ht->array[hs]->value);
+		ht->array[hs]->value = strdup(value);
+		return (1);
+	}
+	hn = malloc(sizeof(hash_node_t));
 	if (hn == NULL)
 		return (0);
 	hn->next = NULL;
 	hn->key = strdup(key);
 	hn->value = strdup(value);
-	if (ht->array[hs] == NULL || strcmp(ht->array[hs]->key, key) == 0)
-	{
-		ht->array[hs] = hn;
-		return (1);
-	}
-	else
-	{
-		temp = ht->array[hs];
-		hn->next = temp;
-		ht->array[hs] = hn;
-		return (1);
-	}
-	return (0);
+
+	temp = ht->array[hs];
+	hn->next = temp;
+	ht->array[hs] = hn;
+	return (1);
 }

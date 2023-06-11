@@ -15,25 +15,30 @@ void hash_table_delete(hash_table_t *ht)
 
 	if (ht == NULL)
 		return;
-	if (ht)
+	if (ht && ht->size && ht->array)
 	{
 		for (i = 0; i < ht->size; i++)
 		{
-			if (ht->array[i] != NULL)
+			if (ht->array[i])
 			{
 				temp = ht->array[i];
-				while (temp != NULL)
+				while (temp)
 				{
 					temp2 = temp;
 					temp = temp->next;
-					free(temp2->key);
-					free(temp2->value);
-					free(temp2);
+					if (temp2->key)
+						free(temp2->key);
+					if (temp2->value)
+						free(temp2->value);
+					if (temp2)
+						free(temp2);
 				}
-				free(temp);
-				free(ht->array[i]);
+				if (temp)
+					free(temp);
+				continue;
 			}
-			free(ht->array[i]);
+			if (ht->array[i])
+				free(ht->array[i]);
 		}
 		free(ht->array);
 		free(ht);
